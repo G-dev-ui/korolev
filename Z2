@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-// Базовый класс "Одежда"
-class Clothing
+// Абстрактный базовый класс "Одежда"
+abstract class Clothing
 {
     public string Material { get; set; }
     public decimal Cost { get; set; }
@@ -34,35 +34,25 @@ class Shirt : Clothing
     }
 }
 
-// Класс "Список одежды" для хранения коллекции элементов одежды
-class ClothingList
+// Класс "Список одежды" наследует от List<Clothing>
+class ClothingList : List<Clothing>
 {
-    private List<Clothing> clothes;
-
-    public ClothingList()
-    {
-        clothes = new List<Clothing>();
-    }
-
-    public void AddClothing(Clothing item)
-    {
-        clothes.Add(item);
-    }
-
     // Метод для определения суммарной стоимости всех вещей размера S
     public decimal CalculateTotalCostBySize(string size)
     {
-        return clothes.Where(c => c.Size == size).Sum(c => c.Cost);
+        return this.Where(c => c.Size == size).Sum(c => c.Cost);
     }
 
     // Метод для определения средней стоимости рубашек
     public decimal CalculateAverageShirtCost()
     {
-        var shirts = clothes.OfType<Shirt>();
+        var shirts = this.OfType<Shirt>();
         if (shirts.Any())
         {
             return shirts.Average(s => s.Cost);
         }
         return 0;
     }
+}
+
 }
