@@ -1,83 +1,29 @@
-﻿// Обобщенный класс для компота
-class Compote<T, U>
+﻿public class PhoneContact
 {
-    // Список ингредиентов
-    private List<T> ingredientsT;
-    private List<U> ingredientsU;
+    public string Phone { get; set; }
+}
 
-    public Compote(List<T> tIngredients, List<U> uIngredients)
+public class EmailContact
+{
+    public string Email { get; set; }
+}
+//обобщенный класс
+public class Contact
+{
+    public List<string> PhoneContacts { get; set; }
+    public List<string> EmailContacts { get; set; }
+
+    public Contact(List<string> phoneContacts, List<string> emailContacts)
     {
-        ingredientsT = tIngredients;
-        ingredientsU = uIngredients;
+        PhoneContacts = phoneContacts;
+        EmailContacts = emailContacts;
     }
-
-    // Метод для вывода рецепта
-    public void PrintRecipe()
+    //метод который выводит кол-во контактов 
+    public void PrintTotalContacts()
     {
-        Console.WriteLine("Рецепт компота:");
-        Console.WriteLine("Яблоки:");
-        foreach (var item in ingredientsT)
-        {
-            Console.WriteLine($" - {item}");
-        }
-        Console.WriteLine("Сливы:");
-        foreach (var item in ingredientsU)
-        {
-            Console.WriteLine($" - {item}");
-        }
+        Console.WriteLine($"Total contacts: {PhoneContacts.Count + EmailContacts.Count}");
     }
 }
 
-// Класс для яблок
-class Apple
-{
-    public int Amount { get; set; }
 
-    public Apple(int amount)
-    {
-        Amount = amount;
-    }
-
-    public override string ToString()
-    {
-        return $"Яблоко (количество: {Amount})";
-    }
-}
-
-// Класс для слив
-class Plum
-{
-    public int Amount { get; set; }
-
-    public Plum(int amount)
-    {
-        Amount = amount;
-    }
-
-    public override string ToString()
-    {
-        return $"Слива (количество: {Amount})";
-    }
-}
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        List<Apple> apples = new List<Apple>
-        {
-            new Apple(3),
-            new Apple(2)
-        };
-
-        List<Plum> plums = new List<Plum>
-        {
-            new Plum(4),
-            new Plum(5)
-        };
-
-        Compote<Apple, Plum> myCompote = new Compote<Apple, Plum>(apples, plums);
-        myCompote.PrintRecipe();
-    }
-}
 
