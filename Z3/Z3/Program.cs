@@ -51,7 +51,8 @@ class Plum
 
     public Plum(int amount)
     {
-        Amount = amount;
+        PhoneContacts = phoneContacts;
+        EmailContacts = emailContacts;
     }
 
     public override string ToString()
