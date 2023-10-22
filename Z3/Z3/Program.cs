@@ -15,6 +15,15 @@ public class Contact
 
     public Contact(List<string> phoneContacts, List<string> emailContacts)
     {
+        if (phoneContacts == null)
+    {
+        throw new ArgumentNullException(nameof(phoneContacts));
+    }
+
+    if (emailContacts == null)
+    {
+        throw new ArgumentNullException(nameof(emailContacts));
+    }
         PhoneContacts = phoneContacts;
         EmailContacts = emailContacts;
     }
