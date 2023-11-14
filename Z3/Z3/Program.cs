@@ -1,4 +1,5 @@
-﻿public class PhoneContact
+
+public class PhoneContact
 {
     public string Phone { get; set; }
 }
@@ -33,6 +34,7 @@ public class Contact
         Console.WriteLine($"Total contacts: {PhoneContacts.Count + EmailContacts.Count}");
     }
 }
+
 
 
 
