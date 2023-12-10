@@ -10,6 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
+        StreamWriter sw = null;
         try
         {
             Console.Write("Введите имя файла: ");
@@ -23,10 +24,8 @@ class Program
                 throw new TooShortStringException("Строка слишком мала");
             }
 
-            using (StreamWriter sw = new StreamWriter(filename))
-            {
-                sw.Write(input[2]);
-            }
+            sw = new StreamWriter(filename);
+            sw.Write(input[2]);
         }
         catch (TooShortStringException ex)
         {
@@ -35,6 +34,13 @@ class Program
         catch (Exception ex)
         {
             Console.WriteLine("Неизвестная ошибка: " + ex.Message);
+        }
+        finally
+        {
+            if (sw != null)
+            {
+                sw.Close();
+            }
         }
     }
 }
