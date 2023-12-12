@@ -5,44 +5,19 @@ class Compote<T, U>
     private List<T> ingredientsT;
     private List<U> ingredientsU;
 
-    public Compote(List<T> tIngredients, List<U> uIngredients)
-    {
-        ingredientsT = tIngredients;
-        ingredientsU = uIngredients;
-    }
-
-    // Метод для вывода рецепта
-    public void PrintRecipe()
-    {
-        Console.WriteLine("Рецепт компота:");
-        Console.WriteLine("Яблоки:");
-        foreach (var item in ingredientsT)
-        {
-            Console.WriteLine($" - {item}");
-        }
-        Console.WriteLine("Сливы:");
-        foreach (var item in ingredientsU)
-        {
-            Console.WriteLine($" - {item}");
-        }
-    }
-}
-
-// Класс для яблок
-class Apple
 {
-    public int Amount { get; set; }
-
-    public Apple(int amount)
-    {
-        Amount = amount;
-    }
-
-    public override string ToString()
-    {
-        return $"Яблоко (количество: {Amount})";
-    }
 }
+
+{
+}
+{
+
+    {
+    {
+    }
+
+    {
+    }
 
 // Класс для слив
 class Plum
@@ -54,10 +29,7 @@ class Plum
         PhoneContacts = phoneContacts;
         EmailContacts = emailContacts;
     }
-
-    public override string ToString()
     {
-        return $"Слива (количество: {Amount})";
     }
 }
 
